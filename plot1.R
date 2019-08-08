@@ -13,8 +13,8 @@
         png("plot1.png", width = 480, height = 480)
         
         barplot(sumEm$Emissions, sumEm$year, names.arg = sumEm$year, col = "blue", 
-                main = "Total PM 2.5 Emissions", ylim = c(0, 8000000), xlab = "Year", 
-                ylab = "Sum of PM2.5 Emissions")
+                main = expression("Total PM"[2.5] * " Emissions"), ylim = c(0, 8000000), 
+                xlab = "Year", ylab = expression(PM[2.5] * " Emissions (tons)"))
         
         dev.off()
 
