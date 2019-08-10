@@ -24,5 +24,5 @@
                 ylab(expression(PM[2.5] * " Emissions (tons)")) +
                 ggtitle(expression(PM[2.5] * " Emissions in Baltimore City by Source Type"))
         
-        ggsave("plot3.png")
+        ggsave("plot3.png", width = 15, height = 10, units = "cm")
         
