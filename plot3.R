@@ -17,12 +17,18 @@
 
 # Create plot and save to PNG file
         library(ggplot2)
-        ggplot(plotdata, aes(factor(year), sum_pm25)) +
-                geom_bar(stat = "identity", fill = "light blue") +
-                facet_grid(. ~ type) +
-                xlab("Year") +
-                ylab(expression(PM[2.5] * " Emissions (tons)")) +
-                ggtitle(expression(PM[2.5] * " Emissions in Baltimore City by Source Type"))
         
-        ggsave("plot3.png")
+        png("plot3.png", width = 480, height = 480)
+        
+        plot1 <- ggplot(plotdata, aes(factor(year), sum_pm25)) +
+                        geom_bar(stat = "identity", fill = "light blue") +
+                        facet_grid(. ~ type) +
+                        xlab("Year") +
+                        ylab(expression(PM[2.5] * " Emissions (tons)")) +
+                        ggtitle(expression(PM[2.5] * " Emissions in Baltimore City by Source Type"))
+        
+        print(plot1)
+        dev.off()
+        
+        #ggsave("plot3.png")
         
