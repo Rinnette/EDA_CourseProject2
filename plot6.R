@@ -20,11 +20,15 @@
         
 # Create plot and save to PNG file
         library(ggplot2)
-        ggplot(plotdata, aes(factor(year), sum_pm25, fill = County)) +
-                geom_bar(stat = "identity") +
-                facet_grid(County ~ ., scales = "free") +
-                xlab("Year") +
-                ylab(expression(PM[2.5] * " Emissions (tons)")) +
-                ggtitle("Motor Vehicle Emissions in Baltimore City and Los Angeles County")
         
-        ggsave("plot6.png")
+        png("plot6.png", width = 540, height = 540)
+        
+        plot6 <- ggplot(plotdata, aes(x = factor(year), y = sum_pm25, group = County, color = County)) +
+                        geom_line(size = 1) +
+                        geom_point(size = 3) +
+                        xlab("Year") +
+                        ylab(expression(PM[2.5] * " Emissions (tons)")) +
+                        ggtitle("Motor Vehicle Emissions in Baltimore City and Los Angeles County")
+        
+        print(plot6)
+        dev.off()
