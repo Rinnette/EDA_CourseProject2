@@ -12,10 +12,14 @@
         
 # Create plot and save to PNG file
         library(ggplot2)
-        ggplot(plotdata, aes(factor(year), Emissions)) +
-                geom_bar(stat = "identity", fill = "#a3b6d6") +
-                xlab("Year") +
-                ylab(expression(PM[2.5] * " Emissions (tons)")) +
-                ggtitle(expression(PM[2.5] * " Emissions from Motor Vehicle Sources in Baltimore City"))
         
-        ggsave("plot5.png")
+        png("plot5.png", width = 480, height = 480)
+        
+        plot5 <- ggplot(plotdata, aes(factor(year), Emissions)) +
+                        geom_bar(stat = "identity", fill = "#a3b6d6") +
+                        xlab("Year") +
+                        ylab(expression(PM[2.5] * " Emissions (tons)")) +
+                        ggtitle(expression(PM[2.5] * " Emissions from Motor Vehicle Sources in Baltimore City"))
+        
+        print(plot5)
+        dev.off()
