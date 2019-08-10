@@ -13,10 +13,14 @@
 
 # Create plot and save to PNG file
         library(ggplot2)
-        ggplot(plotdata, aes(factor(year), Emissions)) +
-                geom_bar(stat = "identity", fill = "#0c8cb3") +
-                xlab("Year") +
-                ylab(expression(PM[2.5] * " Emissions (tons)")) +
-                ggtitle(expression(PM[2.5] * " Emissions from Coal Combustion-related Sources"))
         
-        ggsave("plot4.png")
+        png("plot4.png", width = 480, height = 480)
+        
+        plot4 <- ggplot(plotdata, aes(factor(year), Emissions)) +
+                        geom_bar(stat = "identity", fill = "#0c8cb3") +
+                        xlab("Year") +
+                        ylab(expression(PM[2.5] * " Emissions (tons)")) +
+                        ggtitle(expression(PM[2.5] * " Emissions from Coal Combustion-related Sources"))
+        
+        print(plot4)
+        dev.off()
